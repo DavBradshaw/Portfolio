@@ -1,0 +1,118 @@
+```{r}
+library(tidyverse)
+library(lubridate)
+library(janitor)
+library(tsibbledata)
+library(tsibble)
+library(leaflet)
+library(sf)
+```
+
+```{r}
+
+bikes <- tsibbledata::nyc_bikes
+
+bikes <- bikes %>% 
+  mutate(month = month(start_time, label = TRUE),
+         date = day(start_time),
+         day = wday(start_time, label = TRUE),
+         start_hour = hour(start_time),
+         stop_hour = hour(stop_time),
+         age = 2018 - birth_year)
+```
+
+
+```{r}
+leaflet(bikes) %>% 
+  addTiles() %>% 
+  addMarkers(lng = ~start_long,
+                   lat = ~start_lat)
+```
+
+```{r}
+stations <- bikes %>% 
+  group_by(start_station) %>% 
+  mutate(start_at_station = n()) %>% 
+  ungroup() %>% 
+  group_by(end_station) %>% 
+  mutate(end_at_station = n()) %>% 
+  ungroup()
+stations
+
+station_start <- stations %>%
+  as.tibble() %>% 
+  select(start_station, start_at_station) %>% 
+  arrange(start_at_station)
+station_start
+
+station_end <- stations %>% 
+  as.tibble() %>% 
+  select(end_station, end_at_station, end_lat, end_long) %>%
+  arrange(end_at_station)
+station_end
+
+station_usage <- station_start %>% 
+  full_join(station_end, by = c("start_station" = "end_station"))%>% 
+  mutate(total_use = end_at_station + ifelse(is.na(start_at_station),0, start_at_station)) %>% 
+  mutate(station = start_station) %>% 
+  distinct(station, total_use, end_lat, end_long) %>% 
+  arrange(total_use)
+
+station_usage %>% 
+  arrange(desc(total_use))
+```
+
+```{r}
+leaflet(station_usage) %>% 
+  addTiles() %>% 
+  addCircleMarkers(lng = ~end_long,
+             lat = ~end_lat,
+             label = ~station,
+             radius = ~total_use/50,
+             weight = 1)
+```
+
+
+```{r}
+
+journeys <- bikes %>% 
+  as.tibble() %>% 
+  count(start_long, start_lat, end_long, end_lat, start_station, end_station) 
+
+
+top_20_journeys <- bikes %>%
+  as_tibble() %>% 
+  rowwise() %>%
+  mutate(start_station = as.character(start_station),
+         end_station = as.character(end_station)) %>% 
+  mutate(a = min(c(start_station, end_station)),
+         b = max(c(start_station, end_station)),
+         stations = paste(a,b)) %>% 
+  select(start_long, start_lat, end_long, end_lat, stations) %>% 
+  group_by(stations) %>% 
+  mutate(route_use = n()) %>% 
+  distinct(stations, .keep_all = TRUE) %>% 
+  arrange(desc(route_use)) %>% 
+  head(20)
+                    
+top_20_journeys
+
+top_journey_geo <- top_20_journeys %>% 
+  mutate(trip = sprintf('LINESTRING (%s %s, %s %s)', start_long, start_lat, end_long, end_lat)) %>% 
+  st_as_sf(wkt = 'trip')
+
+st_geometry(top_journey_geo)
+
+```
+
+
+```{r}
+leaflet(top_journey_geo) %>% 
+  addTiles() %>% 
+  addPolylines(label = ~stations)
+
+st_linestring
+```
+
+
+

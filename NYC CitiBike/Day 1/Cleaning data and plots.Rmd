@@ -1,0 +1,320 @@
+```{r}
+library(tidyverse)
+library(lubridate)
+library(janitor)
+library(tsibbledata)
+library(tsibble)
+```
+
+```{r}
+bikes <- tsibbledata::nyc_bikes
+
+bikes %>% 
+  count(bike_id)
+#could show how one bike moved across the city over time (maybe not the most common bike though)
+bikes %>% 
+  count(type)
+
+bikes %>% 
+  count(gender)
+
+bikes %>% 
+  count(birth_year)
+
+glimpse(bikes)
+
+bikes <- bikes %>% 
+  mutate(month = month(start_time, label = TRUE),
+         date = day(start_time),
+         day = wday(start_time, label = TRUE),
+         start_hour = hour(start_time),
+         stop_hour = hour(stop_time),
+         age = 2018 - birth_year)
+
+citi_theme <- theme(axis.text = element_text(size = 10),
+                    plot.title = element_text(size = 14),
+                    panel.background = element_rect(fill = "#6AB3D9"),
+                    panel.grid.minor.y = element_blank()
+)
+
+view(bikes %>% 
+  distinct(bike_id, month) %>%
+    count(month) %>% 
+  summarise(month, bikes_active_in_month = n))
+
+
+bikes %>% 
+  mutate(time_of_trip = stop_time - start_time) %>% 
+  ggplot(aes(time_of_trip)) + 
+  geom_histogram()
+
+bikes %>% 
+  mutate(time_of_trip = stop_time - start_time) %>%
+  filter(time_of_trip < 45) %>% 
+  ggplot(aes(time_of_trip)) + 
+  geom_histogram()
+
+
+bikes %>% 
+  mutate(time_of_trip = stop_time - start_time) %>%
+  mutate(over_45_mins = ifelse(time_of_trip >45, "yes", "no")) %>% 
+  count(over_45_mins)
+
+
+
+```
+
+
+```{r}
+bikes %>% 
+  ggplot()+
+  geom_bar(aes(x = type, fill = type), fill = c("#D9261C", "#003B70"))+
+  labs(x = "Type of user",
+       y = "Journeys",
+       title = "Total journeys in 2018 by user type")+
+  citi_theme
+
+bikes %>% 
+  ggplot()+
+  geom_bar(aes(x = gender, fill = gender), fill = c("#D9261C", "#003B70", "#D9261C"))+
+    labs(x = "Gender of user",
+       y = "Journeys",
+       title = "Total journeys in 2018 by user gender")+
+  citi_theme
+
+bikes %>% 
+  filter(gender != "unknown") %>% 
+  ggplot()+
+  geom_histogram(aes(x = age), fill = "#D9261C")+
+      labs(x = "Age of user",
+       y = "Journeys",
+       title = "Total journeys in 2018 by user age")+
+  citi_theme
+
+bikes %>% 
+  filter(gender != "Unknown") %>% 
+  count(age)
+
+bikes %>% 
+  as.tibble() %>% 
+  filter(gender != "Unknown") %>%
+  group_by(gender) %>% 
+  summarise(mean_age = mean(age), median_age = median(age))
+  
+  
+  269
+```
+
+
+
+
+```{r}
+bikes %>% 
+  ggplot(aes(x = birth_year))+
+  geom_bar()
+
+bikes %>% 
+  filter(gender == "Unknown") %>% 
+  count(birth_year)
+
+bikes %>% 
+  filter(gender == "Unknown") %>% 
+  count(type)
+#Majority of unknown gender data has birth year assigned as 1969, also includes highly unlikely years such as 1887 and 1888
+
+bikes %>% 
+  filter(gender != "Unknown") %>% 
+  ggplot(aes(x = birth_year))+
+  geom_histogram()+
+  facet_grid(type ~ gender)
+
+
+bikes %>% 
+  filter(gender != "Unknown") %>% 
+  ggplot(aes(x = age))+
+  geom_histogram()+
+  facet_grid(type ~ gender)
+```
+
+
+
+
+
+
+```{r}
+bikes %>% 
+  group_by(gender) %>% 
+  count(month) %>% 
+  ggplot(aes(x = month, y = n))+
+  geom_line(aes(group = gender, colour = gender))+
+  labs(x = "Month",
+       y = "Trips taken",
+       title = "Trips taken on Citibike by month for 2018")
+
+
+
+bikes %>% 
+  count(month) %>% 
+  ggplot(aes(x = month, y = n))+
+  geom_line(aes(group = 1))+
+  labs(x = "Month",
+       y = "Trips taken",
+       title = "Trips taken on Citibike by month for 2018")
+```
+```{r}
+
+bikes %>% 
+  group_by(gender) %>% 
+  count(date) %>% 
+  ggplot(aes(x = date, y = n))+
+  geom_line(aes(group = gender, colour = gender))+
+  labs(x = "Date in month",
+       y = "Trips taken",
+       title = "Trips taken on Citibike by hour of the day for 2018")
+
+
+#no real pattern in date that may show more use at certain times of the month which could have been related to pay days
+bikes %>% 
+  filter(type == "Customer") %>% 
+  count(date) %>% 
+  ggplot(aes(x = date, y = n))+
+  geom_line(group = 1)+
+  labs(x = "Date in month",
+       y = "Trips taken",
+       title = "Trips taken on Citibike by hour of the day for 2018")
+```
+```{r}
+bikes %>% 
+  count(day) %>% 
+  ggplot(aes(x = day, y = n))+
+  geom_line(group = 1)+
+  labs(x = "Day in week",
+       y = "Trips taken",
+       title = "Trips taken on Citibike by day in the week for 2018")
+
+
+bikes %>% 
+  group_by(gender) %>% 
+  count(day) %>% 
+  ggplot(aes(x = day, y = n))+
+  geom_line(aes(group = gender, colour = gender))+
+  labs(x = "Day in week",
+       y = "Trips taken",
+       title = "Trips taken on Citibike by day in the week for 2018")
+```
+
+
+```{r}
+bikes %>% 
+  count(start_hour) %>% 
+  ggplot(aes(x = start_hour, y = n))+
+  geom_line(group = 1)+
+  labs(x = "Month",
+       y = "Trips taken",
+       title = "Start time of trips taken on Citibike by hour of the day for 2018")
+
+bikes %>% 
+  count(stop_hour) %>% 
+  ggplot(aes(x = stop_hour, y = n))+
+  geom_line(group = 1)+
+  labs(x = "Month",
+       y = "Trips taken",
+       title = "Stop time of trips taken on Citibike by hour of the day for 2018")
+
+#Want to get these on the same graph
+
+bikes %>% 
+  as_tibble() %>% 
+  group_by(start_hour) %>% 
+  mutate(start_at_hour = n()) %>% 
+  ungroup() %>% 
+  group_by(stop_hour) %>% 
+  mutate(stop_at_hour = n()) %>% 
+  ggplot()+
+  geom_line(aes(x = start_hour, y = start_at_hour), colour = "red") +
+  geom_line(aes(x = stop_hour, y = stop_at_hour), colour = "blue")
+```
+
+
+Use the below to draw maps of most popular routes
+```{r}
+bikes %>% 
+  as.tibble() %>% 
+  count(start_station, end_station) %>% 
+  arrange(desc(n))
+```
+
+bikes at a given station
+
+```{r}
+bikes %>%
+  distinct(bike_id, start_station, end_station)
+
+bikes %>% 
+  count(bike_id)
+
+bikes %>%
+  filter(bike_id == 33074) %>% 
+  ggplot(aes(x = start_time, y = start_station, group = bike_id)) +
+  geom_line()+
+  labs(title = "33074")
+#could use this on a map? This bike has the lowest usage so a plot may be clearer.
+
+bikes %>%
+  filter(bike_id == 26301) %>% 
+  ggplot(aes(x = start_time, y = start_station, group = bike_id)) +
+  geom_line()+
+    labs(title = "26301")
+
+bikes %>%
+  filter(bike_id == 33571) %>% 
+  ggplot(aes(x = start_time, y = start_station, group = bike_id)) +
+  geom_line()+
+    labs(title = "33571")
+
+bikes %>%
+  filter(bike_id == 33557) %>% 
+  ggplot(aes(x = start_time, y = start_station, group = bike_id)) +
+  geom_line()+
+    labs(title = "33557")
+
+bikes %>%
+  filter(bike_id == 31735) %>% 
+  ggplot(aes(x = start_time, y = start_station, group = bike_id)) +
+  geom_line()+
+    labs(title = "31735")
+
+bikes %>%
+  filter(bike_id == 31681) %>% 
+  ggplot(aes(x = start_time, y = start_station, group = bike_id)) +
+  geom_line()+
+    labs(title = "31681")
+
+bikes %>%
+  filter(bike_id == 29522) %>% 
+  ggplot(aes(x = start_time, y = start_station, group = bike_id)) +
+  geom_line()+
+    labs(title = "29522")
+
+bikes %>%
+  filter(bike_id == 29506) %>% 
+  ggplot(aes(x = start_time, y = start_station, group = bike_id)) +
+  geom_line()+
+    labs(title = "29506")
+
+bikes %>%
+  filter(bike_id == 29477) %>% 
+  ggplot(aes(x = start_time, y = start_station, group = bike_id)) +
+  geom_line()+
+    labs(title = "29477")
+
+bikes %>%
+  filter(bike_id == 26307) %>% 
+  ggplot(aes(x = start_time, y = start_station, group = bike_id)) +
+  geom_line()+
+    labs(title = "26307")
+```
+
+On a rolling basis count the amount of bikes at any given end_station - not enough data really with only 10 bikes
+
+
