@@ -1,0 +1,393 @@
+---
+title: "Candy, Candy, Candy"
+output: 
+  html_document:
+    css: ../../../../styles.css
+    df_print: paged
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align = 'center')
+```
+
+# Introduction to the dataset<br>
+
+The data set for Halloween Candy is made up of 3 excel spreadsheets containing survey data for 2015, 2016 and 2017 respectively.
+
+This data is very wide and messy with many columns of data that are not required. Those columns that are required often contain data poorly formatted for analysis or with inconsistency in reporting values making grouping difficult.
+
+In cases where data was entered with insufficient data to assign an exact value, values have been taken as __NULL__.
+
+It has been assumed that the only data of interest relates to the;
+
+* age
+* gender
+* whether the individual was going trick or treating?
+* candy type and rating
+* country
+* year
+
+
+```{r, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(("halloween bucket.jpg"))
+```
+
+# Libraries required<br>
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+library(janitor)
+library(readxl)
+```
+
+
+
+# Data cleaning<br>
+
+* Raw data was loaded in R studio in 3 separate files.
+
+* After each stage the data was saved to a new variable to avoid over-writing desired data. If this process was desired for re-use (e.g. 2018 data) this could be combined into a single function for each year __OR__ run as a single chunk.
+
+* Each file was separately run through the clean names function from janitor, had desired columns re-named to the same across files, specified rows were deselected and a year was added.
+
+<!-- candy_2017 <- raw_candy_2017 %>%  -->
+<!--   clean_names() %>%  -->
+<!--   rename("ID" = "internal_id", "age" = "q3_age", "trick_or_treating" = "q1_going_out", "gender" = "q2_gender", "country" = "q4_country", "state" = "q5_state_province_county_etc") %>%  -->
+<!--   select(-c(1, 6, 110:120)) %>% -->
+<!--   mutate(year = 2017) -->
+* A filter was carried out on the age columns to find unique values and any that could be determined to be a certain value were recoded to remove any additional information. The column was then converted to an integer.
+
+<!-- candy %>%  -->
+<!--  group_by(age) %>%  -->
+<!--  summarise(count = n()) -->
+<!-- age_sorted_candy_2017 <- candy_2017 %>%  -->
+<!--   mutate(age = recode(age, -->
+<!--                       "5u" = "5", -->
+<!--                       "46 Halloweens." = "46", -->
+<!--                       "59 on the day after Halloween"= "58", -->
+<!--                       "sixty-nine" = "69")) %>%  -->
+<!--   mutate(age = as.integer(age)) -->
+* The country data was then filtered in the same way and any outlier values that could were either recoded to a known country or to a NULL value if unclear.
+
+<!-- More code than this was used, only copied over a selection -->
+<!-- country_sorted_candy_2017 <- age_sorted_candy_2017 %>%  -->
+<!--   mutate(country = str_to_lower(country)) %>%  -->
+<!--   mutate(country = recode(country, -->
+<!--                           "1" = "na", -->
+<!--                           "united states of america" = "usa", -->
+<!--                           "united kingdom" = "uk", -->
+<!--                           "united states of america" = "usa", -->
+<!--                           "'merica" = "usa", -->
+<!--                           "ahem....amerca" = "usa", -->
+<!--                           "america" = "usa", -->
+<!--                           "atlantis" = "na", -->
+<!--                           "california" = "usa", -->
+<!--                           "u.s."= "usa", -->
+<!--                           "ud" = "uk", -->
+<!--                           "united states of america	" = "usa", -->
+<!--                           "unied states" = "usa", -->
+<!--                           "united states of america" = "usa", -->
+<!--                           "united  states of america" = "usa" -->
+<!--   )) %>%  -->
+<!--   mutate(country = na_if(country, "na")) -->
+* Other columns were checked as well but found to contain acceptable data so data was pivoted into a long format to retain certain columns while changing all candy related to split the candy type and rating into separate rows.
+
+<!-- pivoted_2017 <- country_sorted_candy_2017 %>%  -->
+<!--   pivot_longer(cols = c(5:107), -->
+<!--                names_to = "candy_type", -->
+<!--                values_to = "rating") -->
+* The 3 sets of data were then joined to provide 1 table using the **bind_rows** function.
+
+<!-- full_candy_data <- pivoted_2015 %>%  -->
+<!--   bind_rows(pivoted_2016, pivoted_2017)  -->
+* At this point data from 2017 required removal of "q._" from the candy types which was done using a str_replace_all function.
+
+<!-- re_named_data <- full_candy_data %>%  -->
+<!--   mutate(candy_type = str_replace_all(candy_type, "q._", "")) %>%  -->
+<!--   unnest()  -->
+* The data was then cross checked, again using a count function and any duplicates were assigned where naming nomenclature had been different between years.
+
+* The data for rating and trick_or_treating was also changed to lower case.
+
+<!-- re_named_data <- re_named_data%>% -->
+<!--   mutate(candy_type = recode(candy_type, -->
+<!--                              "boxo_raisins" = "box_o_raisins", -->
+<!--                              "anonymous_brown_globs_that_come_in_black_and_orange_wrappers" = "anonymous_brown_globs_that_come_in_black_and_orange_wrappers_a_k_a_mary_janes", -->
+<!--                              "mary_janes" = "anonymous_brown_globs_that_come_in_black_and_orange_wrappers_a_k_a_mary_janes", -->
+<!--                              "sweetums_a_friend_to_diabetes" = "sweetums", -->
+<!--                              "dark_chocolate_hershey" = "hersheys_dark_chocolate", -->
+<!--                              "x100_grand_bar" = "100_grand_bar")) %>%  -->
+<!--   mutate(rating = str_to_lower(rating)) %>%  -->
+<!--   mutate(trick_or_treating = str_to_lower(trick_or_treating)) -->
+* The data was found when summarising ages to contain many impossible age values, a decision was made to filter these out when age was 2 or younger (assuming a parent could complete for a child above this age) and over 100 years old.
+
+<!-- impossible_age_filtered_data <- re_named_data %>%  -->
+<!--   mutate(age = case_when( -->
+<!--     age >2 & age < 101 ~ as.integer(age) -->
+<!--   )) -->
+* Finally the data could be written to a .csv file to be used for analysis
+
+# Overview of data to be used
+
+```{r}
+candy <- read_csv(here("clean_data/clean_candy_data.csv"))
+candy
+```
+# Questions from the task brief
+
+__1 - What is the total number of candy ratings given across the three years. (Number of candy ratings, not the number of raters. Don’t count missing values)__
+
+Used !is.na to filter out NA values from the rating column, then summarized a count of the number of ratings in that column.
+
+* There are a total of 772352 ratings for candy across the three years.
+* These are made up of 308182 "Joy" ratings, 90495 "Meh" ratings and 373675 "Despair" ratings.
+```{r}
+candy %>% 
+  filter(!is.na(rating)) %>% 
+  summarise(total_amount_of_all_ratings = n())
+
+candy %>% 
+  filter(!is.na(rating)) %>% 
+  group_by(rating) %>% 
+  summarise(total_of_ratings_by_grade = n())
+```
+
+
+
+
+__2 -What was the average age of people who are going out trick or treating?__
+
+On first attempt the average age was 243 years old, need to clear up some outlier values in the age column - data was recleaned to remove any ages over 101.
+
+* After cleaning the mean age of trick or treaters is 35.
+* The median age of trick or treaters is 37.
+```{r}
+candy %>% 
+  filter(!is.na(age), trick_or_treating == "yes") %>%
+  summarise(mean_age = mean(age))
+
+candy %>% 
+  filter(!is.na(age), trick_or_treating == "yes") %>%
+  summarise(median_age = median(age))
+```
+
+
+__3 - What was the average age of people who are not going trick or treating?__
+
+Same method as previous question but applied a different filter.
+
+* The mean age not going trick or treating is 39.
+* The median age not going trick or treating is 38.
+```{r}
+candy %>% 
+  filter(!is.na(age), trick_or_treating == "no") %>%
+  summarise(mean_age = mean(age))
+
+candy %>% 
+  filter(!is.na(age), trick_or_treating == "no") %>%
+  summarise(median_age = median(age))
+```
+
+
+__4 - For each of joy, despair and meh, which candy bar received the most of these ratings?__
+
+Done two ways first by filtering on the individual ratings and then grouping the most ratings are as follows;
+
+* joy = any_full_sized_candy_bar with 7589 ratings 
+* despair = anonymous_brown_globs_that_come_in_black_and_orange_wrappers_a_k_a_mary_janes 10677 ratings
+* meh = lollipops 1570 ratings
+```{r}
+candy %>% 
+  filter(rating == "joy" & !is.na(candy_type)) %>% 
+  group_by(candy_type, rating) %>% 
+  summarise(number_of_joy_ratings = n()) %>% 
+  ungroup() %>% 
+  slice_max(number_of_joy_ratings)
+
+candy %>% 
+  filter(rating == "despair" & !is.na(candy_type)) %>% 
+  group_by(candy_type, rating) %>% 
+  summarise(number_of_despair_ratings = n()) %>% 
+  ungroup() %>% 
+  slice_max(number_of_despair_ratings)
+
+candy %>% 
+  filter(rating == "meh" & !is.na(candy_type)) %>% 
+  group_by(candy_type, rating) %>% 
+  summarise(number_of_meh_ratings = n()) %>% 
+  ungroup() %>% 
+  slice_max(number_of_meh_ratings)
+
+#flipped rating and candy type around so that max for each rating was returned
+candy %>%
+  filter(!is.na(rating) & !is.na(candy_type)) %>% 
+  group_by(rating, candy_type) %>% 
+  summarise(number_of_ratings_for_candy_bar = n()) %>% 
+  slice_max(number_of_ratings_for_candy_bar)
+```
+```{r, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(("bars.jpeg"))
+```
+__5 - How many people rated Starburst as despair__
+Filtered by starburst and despair to find result.
+
+1990 ratings of despair were given to Starburst.
+
+```{r}
+candy %>% 
+  filter(rating == "despair" & candy_type == "starburst") %>% 
+  group_by(candy_type, rating) %>% 
+  summarise(number_of_despair_ratings_for_starburst = n())
+```
+
+__For the next three questions, count despair as -1, joy as +1, and meh as 0.__
+
+Used a case when function to add a new column and create a modified data set for these 3 questions
+```{r}
+candy_rating_system <- candy %>% 
+  mutate(
+    candy_rating = case_when(
+      rating == "despair" ~ -1,
+      rating == "meh"     ~  0,
+      rating == "joy"     ~  1
+    )
+  )
+
+candy_rating_system
+```
+
+
+__6 - What was the most popular candy bar by this rating system for each gender in the dataset?__
+
+Everybody loves full size candy bars.
+
+```{r}
+candy_rating_system %>%
+  filter(!is.na(rating)) %>% 
+  group_by(gender, candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating)) %>% 
+  slice_max(popularity_score)
+
+# #check using males data as an exam
+# candy_rating_system %>% 
+#   filter(gender == "Male" & !is.na(rating)) %>% 
+#   group_by(candy_type) %>% 
+#   summarise(popularity_score = sum(candy_rating)) %>% 
+#   ungroup() %>% 
+#   arrange(desc(popularity_score))
+```
+
+
+
+__7 - What was the most popular candy bar in each year?__
+
+Any_full_sized_candy_bar was the most popular candy bar every year.
+```{r}
+candy_rating_system %>%
+  filter(!is.na(rating)) %>% 
+  group_by(year, candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating)) %>%
+  slice_max(popularity_score)
+```
+
+
+
+
+_8 - What was the most popular candy bar by this rating for people in US, Canada, UK, and all other countries?__
+
+Full sized candy bars are the most popular trick or treat item Canada, USA and other countries. UK people are more likely happiest with straight money.
+
+_People prefer money to candy in the UK!_ 
+```{r}
+candy_rating_system %>% 
+  mutate(country_filtered = case_when(
+    country == "usa" ~ "usa",
+    country == "uk"  ~ "uk",
+    country == "canada" ~ "canada",
+    TRUE             ~ "other"
+  )) %>% 
+  filter(!is.na(rating)) %>% 
+  group_by(country_filtered, candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating)) %>% 
+  slice_max(popularity_score)
+```
+
+
+```{r, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(("scrooge.jpg"))
+```
+
+
+
+# Just for interest
+
+__What was the least popular thing?__
+
+The least popular by this candy rating system was the brown globs/mary janes that had previously got the most despair ratings. This may be due to the way the data sets were cleaned as this column was combined with mary janes. This may have resulted in double ratings for that candy in certain years.
+
+
+```{r}
+candy_rating_system %>%
+  filter(!is.na(rating)) %>% 
+  group_by(candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating)) %>%
+  slice_min(popularity_score)
+```
+
+```{r, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(("mary janes.jpg"))
+```
+
+__What is the most meh overall item to receive, i.e. the one whose candy rating is closest to zero while still getting a lot of ratings?__
+
+The 3 most meh overall were mike and ike, mint m&ms and vicodin (which doesn't seem very suitable to give away as a trick or treat!).
+
+```{r}
+candy_rating_system %>%
+  filter(!is.na(rating)) %>% 
+  group_by(candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating), responses = n()) %>% 
+  filter(popularity_score <100 & popularity_score >-100)
+```
+
+__What is the most and least popular candy by age group?__
+
+Under 25 seem to enjoy cash as a trick or treat item while over 18s enjoy full size chocolate bars the most.
+
+People up to 40 dislike the brown globs the most, after that age overall they are least satisfied with a broken glowstick (understandably).
+```{r}
+candy_rating_system %>%
+  mutate(age_groups = case_when(
+    age <18 ~ "under 18",
+    age <26 ~ "18 to 25",
+    age <41 ~ "26 to 40",
+    age <61 ~ "41 to 60",
+    age <105 ~ "over 60"
+  )) %>% 
+  filter(!is.na(rating)) %>% 
+  group_by(age_groups, candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating)) %>% 
+  slice_max(popularity_score)
+
+candy_rating_system %>%
+  mutate(age_groups = case_when(
+    age <18 ~ "under 18",
+    age <26 ~ "18 to 25",
+    age <41 ~ "26 to 40",
+    age <61 ~ "41 to 60",
+    age <105 ~ "over 60"
+  )) %>% 
+  filter(!is.na(rating)) %>% 
+  group_by(age_groups, candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating)) %>% 
+  slice_min(popularity_score)
+  
+```
+
+
+
+

@@ -1,0 +1,273 @@
+---
+title: "Candy Candy Candy"
+output: html_notebook
+---
+Libraries required for this analysis
+```{r}
+library(tidyverse)
+library(here)
+```
+
+load data
+```{r}
+candy <- read_csv(here("clean_data/clean_candy_data.csv"))
+candy
+```
+
+#Q1 - What is the total number of candy ratings given across the three years. (Number of candy ratings, not the number of raters. Don’t count missing values)
+
+_Used !is.na to filter out NA values from the rating column_
+_There are a total of 772352 ratings for candy across the three years_
+_These are made up of 308182 "Joy" ratings, 90495 "Meh" ratings and 373675 "Despair" ratings_
+```{r}
+
+candy %>% 
+  filter(!is.na(rating)) %>% 
+  summarise(total_amount_of_all_ratings = n())
+
+candy %>% 
+  filter(!is.na(rating)) %>% 
+  group_by(rating) %>% 
+  summarise(total_of_ratings_by_grade = n())
+
+
+```
+
+
+#Q2 -What was the average age of people who are going out trick or treating?
+
+_On first attempt the average age was 243 years old, need to clear up some outlier values in the age column - re-clean_
+_After cleaning the mean age of tirck or treaters is 35_
+_The median age of tirck or treaters is 37_
+```{r}
+candy %>% 
+  filter(!is.na(age), trick_or_treating == "yes") %>%
+  summarise(mean_age = mean(age))
+
+
+
+candy %>% 
+  filter(!is.na(age), trick_or_treating == "yes") %>%
+  summarise(meadian_age = median(age))
+
+```
+
+
+#Q3 - What was the average age of people who are not going trick or treating?
+_same method but different filter_
+_The mean age not going trick or treating is 39_
+_The median age not going trick or treating is 38_
+```{r}
+candy %>% 
+  filter(!is.na(age), trick_or_treating == "no") %>%
+  summarise(mean_age = mean(age))
+
+candy %>% 
+  filter(!is.na(age), trick_or_treating == "no") %>%
+  summarise(median_age = median(age))
+```
+
+
+#Q4 - For each of joy, despair and meh, which candy bar received the most of these ratings?
+_Below by filtering on the individual ratings and then grouping the most ratings are as follows;_
+_joy = any_full_sized_candy_bar with 7589 ratings (obviously)_
+_despair = anonymous_brown_globs_that_come_in_black_and_orange_wrappers_a_k_a_mary_janes 10677 ratings_
+_meh = lollipops 1570 ratings_
+```{r}
+candy %>% 
+  filter(rating == "joy" & !is.na(candy_type)) %>% 
+  group_by(candy_type, rating) %>% 
+  summarise(number_of_joy_ratings = n()) %>% 
+  ungroup() %>% 
+  slice_max(number_of_joy_ratings)
+
+
+
+candy %>% 
+  filter(rating == "despair" & !is.na(candy_type)) %>% 
+  group_by(candy_type, rating) %>% 
+  summarise(number_of_despair_ratings = n()) %>% 
+  ungroup() %>% 
+  slice_max(number_of_despair_ratings)
+
+
+candy %>% 
+  filter(rating == "meh" & !is.na(candy_type)) %>% 
+  group_by(candy_type, rating) %>% 
+  summarise(number_of_meh_ratings = n()) %>% 
+  ungroup() %>% 
+  slice_max(number_of_meh_ratings)
+
+
+#flipped rating and candy type around so that max for each rating was returned
+candy %>%
+  filter(!is.na(rating) & !is.na(candy_type)) %>% 
+  group_by(rating, candy_type) %>% 
+  summarise(number_of_ratings_for_candy_bar = n()) %>% 
+  slice_max(number_of_ratings_for_candy_bar)
+  
+
+
+```
+
+#Q5 - How many people rated Starburst as despair?
+_Filtered by starburst and despair to find result_
+_1990 ratings of despair were given to Starburst_
+
+```{r}
+
+candy %>% 
+  filter(rating == "despair" & candy_type == "starburst") %>% 
+  group_by(candy_type, rating) %>% 
+  summarise(number_of_despair_ratings_for_starburst = n())
+
+```
+
+##For the next three questions, count despair as -1, joy as +1, and meh as 0.
+
+_Used a case when function to add a new column and create a modified data set for these 3 questions_
+```{r}
+
+
+candy_rating_system <- candy %>% 
+  mutate(
+    candy_rating = case_when(
+      rating == "despair" ~ -1,
+      rating == "meh"     ~  0,
+      rating == "joy"     ~  1
+    )
+  )
+
+candy_rating_system
+```
+
+
+#Q6 - What was the most popular candy bar by this rating system for each gender in the dataset ?
+_everybody loves full size candy bars (obviously)_
+
+```{r}
+
+candy_rating_system %>%
+  filter(!is.na(rating)) %>% 
+  group_by(gender, candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating)) %>% 
+  slice_max(popularity_score)
+
+#check using males data
+candy_rating_system %>% 
+  filter(gender == "Male" & !is.na(rating)) %>% 
+  group_by(candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating)) %>% 
+  ungroup() %>% 
+  arrange(desc(popularity_score))
+```
+
+
+
+#Q7 - What was the most popular candy bar in each year?
+_any_full_sized_candy_bar was the most popular candy bar every year (obviously)_
+```{r}
+
+candy_rating_system %>%
+  filter(!is.na(rating)) %>% 
+  group_by(year, candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating)) %>%
+  slice_max(popularity_score)
+
+```
+
+
+
+
+#Q8 - What was the most popular candy bar by this rating for people in US, Canada, UK, and all other countries?
+
+_Full sized candy bars are the most popular trick or treat item canada, usa and other countries. uk are more likely to be just after that straight cash money_
+```{r}
+candy_rating_system %>% 
+  mutate(country_filtered = case_when(
+    country == "usa" ~ "usa",
+    country == "uk"  ~ "uk",
+    country == "canada" ~ "canada",
+    TRUE             ~ "other"
+  )) %>% 
+  filter(!is.na(rating)) %>% 
+  group_by(country_filtered, candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating)) %>% 
+  slice_max(popularity_score)
+```
+
+# Just for interest
+
+__What was the least popular thing?__
+
+The least popular by this candy rating system was the brown globs that had previously got the most despair ratings.
+
+
+```{r}
+candy_rating_system %>%
+  filter(!is.na(rating)) %>% 
+  group_by(candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating)) %>%
+  slice_min(popularity_score)
+```
+
+__What is the most meh overall item to receive, i.e. the one whose candy rating is closest to zero while still getting a lot of ratings?__
+
+The 3 most meh overall were mike and ike, mint m&ms and vicodin (which doesn't seem very suitable to give away as a trick or treat!).
+
+```{r}
+candy_rating_system %>%
+  filter(!is.na(rating)) %>% 
+  group_by(candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating), responses = n()) %>% 
+  filter(popularity_score <100 & popularity_score >-100)
+```
+
+__What is the most and least popular candy by age group?__
+
+Under 25 seem to enjoy cash as a trick or treat item while over 18s enjoy full size chocolate bars the most.
+
+People up to 40 dislike the brown globs the most, after that age overall they are least satisfied with a broken glowstick (understandably).
+```{r}
+candy_rating_system %>%
+  mutate(age_groups = case_when(
+    age <18 ~ "under 18",
+    age <26 ~ "18 to 25",
+    age <41 ~ "26 to 40",
+    age <61 ~ "41 to 60",
+    age <105 ~ "over 60"
+  )) %>% 
+  filter(!is.na(rating)) %>% 
+  group_by(age_groups, candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating)) %>% 
+  slice_max(popularity_score)
+
+candy_rating_system %>%
+  mutate(age_groups = case_when(
+    age <18 ~ "under 18",
+    age <26 ~ "18 to 25",
+    age <41 ~ "26 to 40",
+    age <61 ~ "41 to 60",
+    age <105 ~ "over 60"
+  )) %>% 
+  filter(!is.na(rating)) %>% 
+  group_by(age_groups, candy_type) %>% 
+  summarise(popularity_score = sum(candy_rating)) %>% 
+  slice_min(popularity_score)
+  
+```
+
+__What candy recived the most ratings? And how were the ratings distributed?__
+
+The brown globs/mary janes re the most rated candy when ignoring NA values. This is partly because they were in some data sets multiple times, as both anonymous_brown_globs... and mary_janes.
+```{r}
+
+candy %>% 
+  filter(!is.na(rating)) %>% 
+  group_by(candy_type) %>% 
+  summarise(total_ratings = n())  
+```
+
+
+
+
