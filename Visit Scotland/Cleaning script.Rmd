@@ -1,0 +1,206 @@
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(here)
+library(sf)
+```
+
+
+
+```{r}
+rdt <- read_csv(here("Raw data/rdt with regions.csv")) %>% 
+  clean_names()
+
+sao <- read_csv(here("Raw data/sao_to_2021.csv"))%>% 
+  clean_names()
+
+tdva <- read_csv(here("Raw data/tourism_day_visits_activities.csv"))%>% 
+  clean_names()
+
+tdvd <- read_csv(here("Raw data/tourism_day_visits_demographics.csv"))%>% 
+  clean_names()
+
+tdvl <- read_csv(here("Raw data/tourism_day_visits_location.csv"))%>% 
+  clean_names()
+
+tdvt <- read_csv(here("Raw data/tourism_day_visits_transport.csv"))%>% 
+  clean_names()
+
+geometry_data <- sf::st_read(here("Raw data/shape_file/pub_commcnc.shp")) %>% 
+  clean_names()
+
+```
+
+```{r}
+
+rdt_cleaner <- rdt %>% 
+  select(-c(measurement, feature_type, feature_code, breakdown_of_domestic_tourism)) %>% 
+  rename(location = feature_name, year_range = date_code) 
+
+nights <- rdt_cleaner %>% 
+  filter(units == "Thousand Nights") %>% 
+  mutate(nights = value * 1000) %>% 
+  select(-c(units, value))
+
+spent <- rdt_cleaner %>% 
+  filter(units == "million pounds (GBP)") %>% 
+  mutate(gbp_spent = value * 1000000)%>% 
+  select(-c(units, value))
+
+visits <- rdt_cleaner %>% 
+  filter(units == "Thousand Visits") %>% 
+  mutate(visits = value * 1000) %>% 
+  select(-c(units, value))
+
+rdt_clean <- left_join(nights, visits, by = c("location", "year_range", "region_of_residence")) %>% 
+  left_join(spent, by = c("location", "year_range", "region_of_residence"))
+
+write_csv(rdt_clean, here("clean data/rdt_clean.csv"))
+
+```
+
+```{r}
+
+sao_clean <- sao %>% 
+  select(-c(feature_code, measurement, units, feature_name, feature_type)) %>% 
+  rename(percent_occupancy = value, year = date_code) %>% 
+  filter(percent_occupancy != "*") %>% 
+  mutate(percent_occupancy = as.numeric(percent_occupancy))
+
+write_csv(sao_clean, here("clean data/accomodation.csv"))
+
+```
+
+```{r}
+
+tdva_cleaner <- tdva %>% 
+  select(-c(feature_code, measurement, breakdown_of_domestic_tourism))
+
+tdva_spent <- tdva_cleaner %>% 
+  filter(units == "million pounds (GBP)") %>% 
+  mutate(gbp_spent = value * 1000000) %>% 
+  select(-c(units, value))
+
+tdva_visits <- tdva_cleaner %>% 
+  filter(units == "Million Visits") %>% 
+  mutate(visits = value * 1000000) %>% 
+  select(-c(units, value))
+
+tdva_visits
+
+tdva_clean <- tdva_spent %>% 
+  left_join(tdva_visits, by = c("date_code", "tourism_activity")) %>% 
+  rename(year = date_code)
+
+tdva_clean
+
+write_csv(tdva_clean, here("clean data/activities.csv"))
+
+```
+
+```{r}
+tdvd_cleaner <- tdvd %>% 
+  select(-c(feature_code, measurement, breakdown_of_domestic_tourism))
+
+tdvd_spent <- tdvd_cleaner %>% 
+  filter(units == "million pounds (GBP)") %>% 
+  mutate(gbp_spent = value * 1000000) %>% 
+  select(-c(units, value))
+
+tdvd_visits <- tdvd_cleaner %>% 
+  filter(units == "Million Visits") %>% 
+  mutate(visits = value * 1000000) %>%
+  select(-c(units, value))
+
+tdvd_clean <- tdvd_spent %>% 
+  left_join(tdvd_visits, by = c("date_code", "age", "marital_status", "gender", "employment_status", "children", "access_to_car", "social_grade")) %>% 
+  rename(year = date_code) %>% 
+  pivot_longer(cols = age:social_grade, names_to = "category", values_to = "type") %>% 
+  filter(type != "All")
+
+View(tdvd_clean)
+
+tdvd_clean 
+
+write_csv(tdvd_clean, here("clean data/demographics.csv"))
+
+```
+
+
+```{r}
+tdvl_cleaner <- tdvl %>% 
+  select(-c(feature_code, measurement, breakdown_of_domestic_tourism)) %>% 
+  rename(year = date_code)
+
+tdvl_spent <- tdvl_cleaner %>% 
+  filter(units == "million pounds (GBP)") %>% 
+  mutate(gbp_spent = value * 1000000) %>% 
+  select(-c(units, value))
+
+tdvl_visits <- tdvl_cleaner %>% 
+  filter(units == "Million Visits") %>% 
+  mutate(visits = value * 1000000) %>%
+  select(-c(units, value))
+
+tdvl_clean <- tdvl_spent %>% 
+  left_join(tdvl_visits, by = c("year", "type_of_location_visited"))
+
+write_csv(tdvl_clean, here("clean data/location.csv"))
+
+```
+
+```{r}
+
+tdvt_cleaner <- tdvt %>% 
+  select(-c(feature_code, measurement, breakdown_of_domestic_tourism)) %>% 
+  rename(year = date_code)
+  
+tdvt_spent <- tdvt_cleaner %>% 
+  filter(units == "million pounds (GBP)") %>% 
+  mutate(gbp_spent = value * 1000000) %>% 
+  select(-c(units, value))
+
+tdvt_visits <- tdvt_cleaner %>% 
+  filter(units == "Million Visits") %>% 
+  mutate(visits = value * 1000000) %>%
+  select(-c(units, value))
+
+tdvt_clean <- tdvt_spent %>% 
+  left_join(tdvt_visits, by = c("year", "method_of_travel"))
+
+tdvt_clean
+
+write_csv(tdvt_clean, here("clean data/travel.csv"))
+
+```
+
+
+```{r}
+
+third_map <- sf::st_read(here("Raw data/third shape file/pub_las.shp")) %>% 
+  clean_names() %>% 
+  select(local_auth, geometry)
+
+class(third_map)
+
+third_map_simple <- st_simplify(third_map, preserveTopology = FALSE, dTolerance = 2000)
+
+rdt_with_map <- rdt_clean %>% 
+  mutate(location = recode(location, "Na h-Eileanan Siar" = "Eilean Siar")) %>% 
+  left_join(third_map_simple, by = c("location" = "local_auth"))
+
+rdt_minus_scotland <- rdt_with_map %>% 
+  filter(location != "Scotland")
+
+latlong <- "+init=epsg:4326"
+
+rdt_map <- st_as_sf(rdt_with_map)
+
+lat_long_rdt_map <- st_transform(rdt_map, crs = latlong)
+
+st_write(lat_long_rdt_map, here("clean data/regional_data.geojson"), append = TRUE)
+
+
+```
+

@@ -1,0 +1,113 @@
+FeatureCode,DateCode,Measurement,Units,Value,Type of Location Visited,Breakdown of Domestic Tourism
+S92000003,2014,Count,million pounds (GBP),186,Seaside - beach,Expenditure
+S92000003,2019,Count,million pounds (GBP),1456,Small town,Expenditure
+S92000003,2016,Count,million pounds (GBP),4916,All areas,Expenditure
+S92000003,2018,Count,million pounds (GBP),5474,All areas,Expenditure
+S92000003,2013,Count,million pounds (GBP),217,Seaside - beach,Expenditure
+S92000003,2018,Count,million pounds (GBP),6,Seaside - other,Expenditure
+S92000003,2018,Count,million pounds (GBP),1234,Small town,Expenditure
+S92000003,2015,Count,million pounds (GBP),230,Seaside resort or town,Expenditure
+S92000003,2016,Count,million pounds (GBP),302,Seaside resort or town,Expenditure
+S92000003,2019,Count,million pounds (GBP),359,Seaside resort or town,Expenditure
+S92000003,2017,Count,million pounds (GBP),458,Seaside resort or town,Expenditure
+S92000003,2015,Count,million pounds (GBP),3922,All areas,Expenditure
+S92000003,2014,Count,million pounds (GBP),5020,All areas,Expenditure
+S92000003,2013,Count,million pounds (GBP),4647,All areas,Expenditure
+S92000003,2016,Count,million pounds (GBP),1037,Small town,Expenditure
+S92000003,2013,Count,million pounds (GBP),68,Seaside - other,Expenditure
+S92000003,2013,Count,million pounds (GBP),1035,Small town,Expenditure
+S92000003,2017,Count,million pounds (GBP),246,Seaside - beach,Expenditure
+S92000003,2019,Count,million pounds (GBP),35,Seaside - other,Expenditure
+S92000003,2015,Count,million pounds (GBP),914,Small town,Expenditure
+S92000003,2016,Count,million pounds (GBP),32,Seaside - other,Expenditure
+S92000003,2016,Count,million pounds (GBP),249,Seaside - beach,Expenditure
+S92000003,2015,Count,million pounds (GBP),36,Seaside - other,Expenditure
+S92000003,2014,Count,million pounds (GBP),128,Seaside - other,Expenditure
+S92000003,2017,Count,million pounds (GBP),75,Seaside - other,Expenditure
+S92000003,2015,Count,million pounds (GBP),81,Seaside - beach,Expenditure
+S92000003,2019,Count,million pounds (GBP),237,Seaside - beach,Expenditure
+S92000003,2018,Count,million pounds (GBP),151,Seaside - beach,Expenditure
+S92000003,2019,Count,million pounds (GBP),457,Village,Expenditure
+S92000003,2015,Count,million pounds (GBP),308,Village,Expenditure
+S92000003,2019,Count,million pounds (GBP),3400,City/large town,Expenditure
+S92000003,2018,Count,million pounds (GBP),3111,City/large town,Expenditure
+S92000003,2017,Count,million pounds (GBP),1377,Small town,Expenditure
+S92000003,2017,Count,million pounds (GBP),883,Village,Expenditure
+S92000003,2014,Count,million pounds (GBP),1398,Small town,Expenditure
+S92000003,2014,Count,million pounds (GBP),2873,City/large town,Expenditure
+S92000003,2015,Count,million pounds (GBP),2254,City/large town,Expenditure
+S92000003,2017,Count,million pounds (GBP),3379,City/large town,Expenditure
+S92000003,2016,Count,million pounds (GBP),2630,City/large town,Expenditure
+S92000003,2014,Count,million pounds (GBP),286,Seaside resort or town,Expenditure
+S92000003,2013,Count,million pounds (GBP),2850,City/large town,Expenditure
+S92000003,2013,Count,million pounds (GBP),206,Seaside resort or town,Expenditure
+S92000003,2017,Count,million pounds (GBP),778,Rural countryside,Expenditure
+S92000003,2016,Count,million pounds (GBP),520,Rural countryside,Expenditure
+S92000003,2017,Count,million pounds (GBP),5995,All areas,Expenditure
+S92000003,2019,Count,million pounds (GBP),429,Rural countryside,Expenditure
+S92000003,2015,Count,million pounds (GBP),402,Rural countryside,Expenditure
+S92000003,2018,Count,million pounds (GBP),228,Seaside resort or town,Expenditure
+S92000003,2018,Count,million pounds (GBP),502,Rural countryside,Expenditure
+S92000003,2016,Count,million pounds (GBP),482,Village,Expenditure
+S92000003,2014,Count,million pounds (GBP),510,Village,Expenditure
+S92000003,2018,Count,million pounds (GBP),651,Village,Expenditure
+S92000003,2013,Count,million pounds (GBP),483,Village,Expenditure
+S92000003,2014,Count,million pounds (GBP),612,Rural countryside,Expenditure
+S92000003,2019,Count,million pounds (GBP),5777,All areas,Expenditure
+S92000003,2013,Count,million pounds (GBP),545,Rural countryside,Expenditure
+S92000003,2013,Count,Million Visits,33,Small town,Visits
+S92000003,2016,Count,Million Visits,17,Village,Visits
+S92000003,2015,Count,Million Visits,32,Small town,Visits
+S92000003,2013,Count,Million Visits,15,Village,Visits
+S92000003,2014,Count,Million Visits,4,Seaside - beach,Visits
+S92000003,2016,Count,Million Visits,5,Seaside - beach,Visits
+S92000003,2018,Count,Million Visits,16,Village,Visits
+S92000003,2014,Count,Million Visits,12,Village,Visits
+S92000003,2017,Count,Million Visits,19,Village,Visits
+S92000003,2017,Count,Million Visits,70,City/large town,Visits
+S92000003,2019,Count,Million Visits,7,Seaside - beach,Visits
+S92000003,2019,Count,Million Visits,16,Village,Visits
+S92000003,2014,Count,Million Visits,35,Small town,Visits
+S92000003,2018,Count,Million Visits,38,Small town,Visits
+S92000003,2013,Count,Million Visits,59,City/large town,Visits
+S92000003,2018,Count,Million Visits,64,City/large town,Visits
+S92000003,2016,Count,Million Visits,61,City/large town,Visits
+S92000003,2015,Count,Million Visits,59,City/large town,Visits
+S92000003,2017,Count,Million Visits,8,Seaside - beach,Visits
+S92000003,2019,Count,Million Visits,59,City/large town,Visits
+S92000003,2015,Count,Million Visits,4,Seaside - beach,Visits
+S92000003,2016,Count,Million Visits,7,Seaside resort or town,Visits
+S92000003,2015,Count,Million Visits,8,Seaside resort or town,Visits
+S92000003,2018,Count,Million Visits,5,Seaside - beach,Visits
+S92000003,2019,Count,Million Visits,9,Seaside resort or town,Visits
+S92000003,2013,Count,Million Visits,8,Seaside resort or town,Visits
+S92000003,2014,Count,Million Visits,59,City/large town,Visits
+S92000003,2014,Count,Million Visits,8,Seaside resort or town,Visits
+S92000003,2018,Count,Million Visits,17,Rural countryside,Visits
+S92000003,2014,Count,Million Visits,19,Rural countryside,Visits
+S92000003,2013,Count,Million Visits,124,All areas,Visits
+S92000003,2017,Count,Million Visits,21,Rural countryside,Visits
+S92000003,2016,Count,Million Visits,22,Rural countryside,Visits
+S92000003,2019,Count,Million Visits,19,Rural countryside,Visits
+S92000003,2014,Count,Million Visits,2,Seaside - other,Visits
+S92000003,2017,Count,Million Visits,9,Seaside resort or town,Visits
+S92000003,2018,Count,Million Visits,8,Seaside resort or town,Visits
+S92000003,2014,Count,Million Visits,127,All areas,Visits
+S92000003,2015,Count,Million Visits,124,All areas,Visits
+S92000003,2013,Count,Million Visits,4,Seaside - beach,Visits
+S92000003,2016,Count,Million Visits,142,All areas,Visits
+S92000003,2016,Count,Million Visits,2,Seaside - other,Visits
+S92000003,2017,Count,Million Visits,2,Seaside - other,Visits
+S92000003,2015,Count,Million Visits,11,Village,Visits
+S92000003,2013,Count,Million Visits,18,Rural countryside,Visits
+S92000003,2015,Count,Million Visits,17,Rural countryside,Visits
+S92000003,2016,Count,Million Visits,39,Small town,Visits
+S92000003,2017,Count,Million Visits,40,Small town,Visits
+S92000003,2019,Count,Million Visits,37,Small town,Visits
+S92000003,2019,Count,Million Visits,134,All areas,Visits
+S92000003,2018,Count,Million Visits,2,Seaside - other,Visits
+S92000003,2019,Count,Million Visits,1,Seaside - other,Visits
+S92000003,2015,Count,Million Visits,2,Seaside - other,Visits
+S92000003,2018,Count,Million Visits,138,All areas,Visits
+S92000003,2013,Count,Million Visits,3,Seaside - other,Visits
+S92000003,2017,Count,Million Visits,151,All areas,Visits

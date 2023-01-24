@@ -1,0 +1,1 @@
+https://geo.spatialhub.scot/geoserver/sh_commcnc/wfs?authkey=b85aa063-d598-4582-8e45-e7e6048718fc?service=WFS&request=GetFeature&typeName=pub_commcnc&format_options=filename:Community_Council_Boundaries_-_Scotland&outputFormat=shape-zip&authkey=b85aa063-d598-4582-8e45-e7e6048718fc

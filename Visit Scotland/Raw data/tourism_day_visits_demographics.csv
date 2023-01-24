@@ -1,0 +1,309 @@
+FeatureCode,DateCode,Measurement,Units,Value,Breakdown of Domestic Tourism,Age,Marital Status,Gender,Employment Status,Children,Access to Car,Social Grade
+S92000003,2013,Count,Million Visits,22,Visits,45-54 years,All,All,All,All,All,All
+S92000003,2013,Count,Million Visits,58,Visits,All,All,Male,All,All,All,All
+S92000003,2016,Count,Million Visits,23,Visits,25-34 years,All,All,All,All,All,All
+S92000003,2019,Count,Million Visits,56,Visits,All,Not Married,All,All,All,All,All
+S92000003,2015,Count,Million Visits,52,Visits,All,Not Married,All,All,All,All,All
+S92000003,2015,Count,Million Visits,15,Visits,45-54 years,All,All,All,All,All,All
+S92000003,2018,Count,Million Visits,23,Visits,65 years and over,All,All,All,All,All,All
+S92000003,2018,Count,Million Visits,59,Visits,All,Not Married,All,All,All,All,All
+S92000003,2014,Count,Million Visits,73,Visits,All,Married,All,All,All,All,All
+S92000003,2016,Count,Million Visits,142,Visits,All,All,All,All,All,All,All
+S92000003,2017,Count,Million Visits,34,Visits,16-24 years,All,All,All,All,All,All
+S92000003,2013,Count,Million Visits,19,Visits,55-64 years,All,All,All,All,All,All
+S92000003,2015,Count,Million Visits,20,Visits,65 years and over,All,All,All,All,All,All
+S92000003,2018,Count,Million Visits,23,Visits,55-64 years,All,All,All,All,All,All
+S92000003,2017,Count,Million Visits,31,Visits,25-34 years,All,All,All,All,All,All
+S92000003,2015,Count,Million Visits,73,Visits,All,Married,All,All,All,All,All
+S92000003,2018,Count,Million Visits,30,Visits,25-34 years,All,All,All,All,All,All
+S92000003,2017,Count,Million Visits,82,Visits,All,Married,All,All,All,All,All
+S92000003,2015,Count,Million Visits,19,Visits,35-44 years,All,All,All,All,All,All
+S92000003,2014,Count,Million Visits,23,Visits,65 years and over,All,All,All,All,All,All
+S92000003,2013,Count,Million Visits,23,Visits,65 years and over,All,All,All,All,All,All
+S92000003,2013,Count,Million Visits,18,Visits,35-44 years,All,All,All,All,All,All
+S92000003,2013,Count,Million Visits,21,Visits,25-34 years,All,All,All,All,All,All
+S92000003,2014,Count,Million Visits,47,Visits,All,All,All,All,All,All,AB
+S92000003,2016,Count,Million Visits,42,Visits,All,All,All,All,All,All,C1
+S92000003,2014,Count,Million Visits,18,Visits,45-54 years,All,All,All,All,All,All
+S92000003,2018,Count,Million Visits,45,Visits,All,All,All,All,All,All,AB
+S92000003,2018,Count,Million Visits,28,Visits,16-24 years,All,All,All,All,All,All
+S92000003,2013,Count,Million Visits,75,Visits,All,Married,All,All,All,All,All
+S92000003,2018,Count,Million Visits,79,Visits,All,Married,All,All,All,All,All
+S92000003,2015,Count,Million Visits,20,Visits,55-64 years,All,All,All,All,All,All
+S92000003,2014,Count,Million Visits,21,Visits,35-44 years,All,All,All,All,All,All
+S92000003,2015,Count,Million Visits,25,Visits,25-34 years,All,All,All,All,All,All
+S92000003,2019,Count,Million Visits,78,Visits,All,Married,All,All,All,All,All
+S92000003,2017,Count,Million Visits,20,Visits,45-54 years,All,All,All,All,All,All
+S92000003,2015,Count,Million Visits,124,Visits,All,All,All,All,All,All,All
+S92000003,2019,Count,million pounds (GBP),1228,Expenditure,All,All,All,All,All,All,C2
+S92000003,2016,Count,million pounds (GBP),729,Expenditure,All,All,All,All,All,All,DE
+S92000003,2015,Count,million pounds (GBP),1484,Expenditure,All,All,All,All,All,All,AB
+S92000003,2018,Count,million pounds (GBP),637,Expenditure,35-44 years,All,All,All,All,All,All
+S92000003,2017,Count,million pounds (GBP),2033,Expenditure,All,All,All,All,All,All,AB
+S92000003,2017,Count,million pounds (GBP),816,Expenditure,All,All,All,All,All,All,DE
+S92000003,2017,Count,million pounds (GBP),2003,Expenditure,All,All,All,All,Yes - Children,All,All
+S92000003,2013,Count,million pounds (GBP),522,Expenditure,All,All,All,All,All,All,DE
+S92000003,2017,Count,million pounds (GBP),1645,Expenditure,All,All,All,All,All,All,C1
+S92000003,2016,Count,million pounds (GBP),1076,Expenditure,45-54 years,All,All,All,All,All,All
+S92000003,2017,Count,million pounds (GBP),958,Expenditure,16-24 years,All,All,All,All,All,All
+S92000003,2017,Count,million pounds (GBP),898,Expenditure,55-64 years,All,All,All,All,All,All
+S92000003,2014,Count,million pounds (GBP),1416,Expenditure,All,All,All,All,Yes - Children,All,All
+S92000003,2019,Count,million pounds (GBP),2242,Expenditure,All,All,All,All,Yes - Children,All,All
+S92000003,2013,Count,million pounds (GBP),994,Expenditure,25-34 years,All,All,All,All,All,All
+S92000003,2017,Count,million pounds (GBP),1361,Expenditure,35-44 years,All,All,All,All,All,All
+S92000003,2018,Count,million pounds (GBP),1454,Expenditure,25-34 years,All,All,All,All,All,All
+S92000003,2014,Count,million pounds (GBP),888,Expenditure,65 years and over,All,All,All,All,All,All
+S92000003,2019,Count,Million Visits,25,Visits,16-24 years,All,All,All,All,All,All
+S92000003,2014,Count,Million Visits,18,Visits,25-34 years,All,All,All,All,All,All
+S92000003,2014,Count,Million Visits,23,Visits,55-64 years,All,All,All,All,All,All
+S92000003,2013,Count,Million Visits,48,Visits,All,Not Married,All,All,All,All,All
+S92000003,2019,Count,Million Visits,24,Visits,65 years and over,All,All,All,All,All,All
+S92000003,2019,Count,Million Visits,20,Visits,35-44 years,All,All,All,All,All,All
+S92000003,2015,Count,Million Visits,62,Visits,All,All,Female,All,All,All,All
+S92000003,2019,Count,Million Visits,23,Visits,55-64 years,All,All,All,All,All,All
+S92000003,2016,Count,Million Visits,26,Visits,55-64 years,All,All,All,All,All,All
+S92000003,2014,Count,Million Visits,54,Visits,All,Not Married,All,All,All,All,All
+S92000003,2017,Count,Million Visits,69,Visits,All,Not Married,All,All,All,All,All
+S92000003,2019,Count,million pounds (GBP),2018,Expenditure,All,All,All,All,All,All,AB
+S92000003,2016,Count,Million Visits,57,Visits,All,Not Married,All,All,All,All,All
+S92000003,2016,Count,Million Visits,25,Visits,35-44 years,All,All,All,All,All,All
+S92000003,2013,Count,Million Visits,124,Visits,All,All,All,All,All,All,All
+S92000003,2016,Count,Million Visits,28,Visits,65 years and over,All,All,All,All,All,All
+S92000003,2016,Count,Million Visits,17,Visits,45-54 years,All,All,All,All,All,All
+S92000003,2019,Count,Million Visits,27,Visits,All,All,All,All,All,All,C2
+S92000003,2014,Count,Million Visits,127,Visits,All,All,All,All,All,All,All
+S92000003,2018,Count,Million Visits,40,Visits,All,All,All,All,All,All,C1
+S92000003,2014,Count,Million Visits,67,Visits,All,All,Female,All,All,All,All
+S92000003,2015,Count,Million Visits,46,Visits,All,All,All,All,All,All,C1
+S92000003,2013,Count,Million Visits,66,Visits,All,All,Female,All,All,All,All
+S92000003,2017,Count,Million Visits,20,Visits,35-44 years,All,All,All,All,All,All
+S92000003,2016,Count,Million Visits,24,Visits,16-24 years,All,All,All,All,All,All
+S92000003,2016,Count,Million Visits,62,Visits,All,All,Male,All,All,All,All
+S92000003,2017,Count,Million Visits,151,Visits,All,All,All,All,All,All,All
+S92000003,2018,Count,Million Visits,29,Visits,All,All,All,All,All,All,C2
+S92000003,2017,Count,Million Visits,73,Visits,All,All,Male,All,All,All,All
+S92000003,2017,Count,million pounds (GBP),2429,Expenditure,All,Not Married,All,All,All,All,All
+S92000003,2017,Count,Million Visits,78,Visits,All,All,Female,All,All,All,All
+S92000003,2014,Count,Million Visits,61,Visits,All,All,Male,All,All,All,All
+S92000003,2016,Count,Million Visits,25,Visits,All,All,All,All,All,All,DE
+S92000003,2013,Count,Million Visits,40,Visits,All,All,All,All,All,All,C1
+S92000003,2013,Count,Million Visits,22,Visits,All,All,All,All,All,All,DE
+S92000003,2019,Count,Million Visits,35,Visits,All,All,All,All,All,All,DE
+S92000003,2018,Count,Million Visits,70,Visits,All,All,Female,All,All,All,All
+S92000003,2017,Count,Million Visits,31,Visits,All,All,All,All,All,All,C2
+S92000003,2016,Count,Million Visits,80,Visits,All,All,Female,All,All,All,All
+S92000003,2019,Count,Million Visits,36,Visits,All,All,All,All,All,All,AB
+S92000003,2018,Count,Million Visits,68,Visits,All,All,Male,All,All,All,All
+S92000003,2014,Count,Million Visits,22,Visits,All,All,All,All,All,All,DE
+S92000003,2015,Count,Million Visits,19,Visits,All,All,All,All,All,All,DE
+S92000003,2017,Count,Million Visits,29,Visits,All,All,All,All,All,All,DE
+S92000003,2017,Count,Million Visits,107,Visits,All,All,All,All,No - Children,All,All
+S92000003,2018,Count,Million Visits,97,Visits,All,All,All,All,No - Children,All,All
+S92000003,2018,Count,Million Visits,138,Visits,All,All,All,All,All,All,All
+S92000003,2018,Count,Million Visits,18,Visits,35-44 years,All,All,All,All,All,All
+S92000003,2018,Count,Million Visits,17,Visits,45-54 years,All,All,All,All,All,All
+S92000003,2013,Count,Million Visits,92,Visits,All,All,All,All,No - Children,All,All
+S92000003,2016,Count,Million Visits,108,Visits,All,All,All,All,No - Children,All,All
+S92000003,2015,Count,Million Visits,92,Visits,All,All,All,All,No - Children,All,All
+S92000003,2014,Count,Million Visits,96,Visits,All,All,All,All,No - Children,All,All
+S92000003,2017,Count,Million Visits,24,Visits,55-64 years,All,All,All,All,All,All
+S92000003,2015,Count,Million Visits,62,Visits,All,All,Male,All,All,All,All
+S92000003,2019,Count,Million Visits,62,Visits,All,All,Male,All,All,All,All
+S92000003,2014,Count,Million Visits,18,Visits,All,All,All,All,All,All,C2
+S92000003,2016,Count,Million Visits,25,Visits,All,All,All,All,All,All,C2
+S92000003,2013,Count,Million Visits,32,Visits,All,All,All,All,Yes - Children,All,All
+S92000003,2018,Count,Million Visits,41,Visits,All,All,All,All,Yes - Children,All,All
+S92000003,2017,Count,Million Visits,23,Visits,65 years and over,All,All,All,All,All,All
+S92000003,2019,Count,Million Visits,134,Visits,All,All,All,All,All,All,All
+S92000003,2019,Count,Million Visits,17,Visits,45-54 years,All,All,All,All,All,All
+S92000003,2014,Count,Million Visits,24,Visits,16-24 years,All,All,All,All,All,All
+S92000003,2019,Count,Million Visits,71,Visits,All,All,Female,All,All,All,All
+S92000003,2019,Count,Million Visits,25,Visits,25-34 years,All,All,All,All,All,All
+S92000003,2013,Count,Million Visits,22,Visits,16-24 years,All,All,All,All,All,All
+S92000003,2013,Count,Million Visits,23,Visits,All,All,All,All,All,All,C2
+S92000003,2015,Count,Million Visits,16,Visits,All,All,All,All,All,All,C2
+S92000003,2015,Count,Million Visits,27,Visits,16-24 years,All,All,All,All,All,All
+S92000003,2016,Count,Million Visits,85,Visits,All,Married,All,All,All,All,All
+S92000003,2019,Count,Million Visits,36,Visits,All,All,All,All,All,All,C1
+S92000003,2017,Count,Million Visits,42,Visits,All,All,All,All,All,All,C1
+S92000003,2015,Count,million pounds (GBP),1249,Expenditure,All,Not Married,All,All,All,All,All
+S92000003,2019,Count,Million Visits,43,Visits,All,All,All,All,Yes - Children,All,All
+S92000003,2015,Count,Million Visits,32,Visits,All,All,All,All,Yes - Children,All,All
+S92000003,2014,Count,Million Visits,41,Visits,All,All,All,All,All,All,C1
+S92000003,2014,Count,million pounds (GBP),5020,Expenditure,All,All,All,All,All,All,All
+S92000003,2013,Count,million pounds (GBP),1319,Expenditure,All,Not Married,All,All,All,All,All
+S92000003,2013,Count,Million Visits,39,Visits,All,All,All,All,All,All,AB
+S92000003,2015,Count,Million Visits,44,Visits,All,All,All,All,All,All,AB
+S92000003,2016,Count,Million Visits,50,Visits,All,All,All,All,All,All,AB
+S92000003,2017,Count,Million Visits,44,Visits,All,All,All,All,Yes - Children,All,All
+S92000003,2017,Count,Million Visits,50,Visits,All,All,All,All,All,All,AB
+S92000003,2018,Count,Million Visits,24,Visits,All,All,All,All,All,All,DE
+S92000003,2019,Count,Million Visits,91,Visits,All,All,All,All,No - Children,All,All
+S92000003,2016,Count,Million Visits,34,Visits,All,All,All,All,Yes - Children,All,All
+S92000003,2014,Count,Million Visits,31,Visits,All,All,All,All,Yes - Children,All,All
+S92000003,2019,Count,million pounds (GBP),2851,Expenditure,All,All,Male,All,All,All,All
+S92000003,2015,Count,million pounds (GBP),573,Expenditure,All,All,All,All,All,All,DE
+S92000003,2013,Count,million pounds (GBP),3328,Expenditure,All,Married,All,All,All,All,All
+S92000003,2019,Count,million pounds (GBP),1079,Expenditure,55-64 years,All,All,All,All,All,All
+S92000003,2018,Count,million pounds (GBP),888,Expenditure,All,All,All,All,All,All,DE
+S92000003,2017,Count,million pounds (GBP),3003,Expenditure,All,All,Male,All,All,All,All
+S92000003,2016,Count,million pounds (GBP),1807,Expenditure,All,All,All,All,All,All,AB
+S92000003,2019,Count,million pounds (GBP),1853,Expenditure,All,Not Married,All,All,All,All,All
+S92000003,2013,Count,million pounds (GBP),2257,Expenditure,All,All,Male,All,All,All,All
+S92000003,2015,Count,million pounds (GBP),448,Expenditure,All,All,All,All,All,All,C2
+S92000003,2019,Count,million pounds (GBP),774,Expenditure,45-54 years,All,All,All,All,All,All
+S92000003,2019,Count,million pounds (GBP),1057,Expenditure,35-44 years,All,All,All,All,All,All
+S92000003,2013,Count,million pounds (GBP),1076,Expenditure,All,All,All,All,All,All,C2
+S92000003,2018,Count,million pounds (GBP),1184,Expenditure,All,All,All,All,All,All,C2
+S92000003,2019,Count,million pounds (GBP),1319,Expenditure,All,All,All,All,All,All,DE
+S92000003,2019,Count,million pounds (GBP),873,Expenditure,65 years and over,All,All,All,All,All,All
+S92000003,2019,Count,million pounds (GBP),1306,Expenditure,25-34 years,All,All,All,All,All,All
+S92000003,2017,Count,million pounds (GBP),1501,Expenditure,All,All,All,All,All,All,C2
+S92000003,2017,Count,million pounds (GBP),5995,Expenditure,All,All,All,All,All,All,All
+S92000003,2015,Count,million pounds (GBP),2672,Expenditure,All,Married,All,All,All,All,All
+S92000003,2015,Count,million pounds (GBP),1929,Expenditure,All,All,Male,All,All,All,All
+S92000003,2019,Count,million pounds (GBP),3924,Expenditure,All,Married,All,All,All,All,All
+S92000003,2016,Count,million pounds (GBP),2483,Expenditure,All,All,Male,All,All,All,All
+S92000003,2015,Count,million pounds (GBP),1993,Expenditure,All,All,Female,All,All,All,All
+S92000003,2013,Count,million pounds (GBP),2389,Expenditure,All,All,Female,All,All,All,All
+S92000003,2017,Count,million pounds (GBP),2992,Expenditure,All,All,Female,All,All,All,All
+S92000003,2018,Count,million pounds (GBP),2024,Expenditure,All,All,All,All,All,All,AB
+S92000003,2016,Count,million pounds (GBP),4916,Expenditure,All,All,All,All,All,All,All
+S92000003,2014,Count,million pounds (GBP),2427,Expenditure,All,All,Male,All,All,All,All
+S92000003,2017,Count,million pounds (GBP),3566,Expenditure,All,Married,All,All,All,All,All
+S92000003,2014,Count,million pounds (GBP),3388,Expenditure,All,Married,All,All,All,All,All
+S92000003,2018,Count,million pounds (GBP),1885,Expenditure,All,Not Married,All,All,All,All,All
+S92000003,2015,Count,million pounds (GBP),3922,Expenditure,All,All,All,All,All,All,All
+S92000003,2019,Count,million pounds (GBP),2926,Expenditure,All,All,Female,All,All,All,All
+S92000003,2013,Count,million pounds (GBP),1600,Expenditure,All,All,All,All,All,All,AB
+S92000003,2013,Count,Million Visits,24,Visits,All,All,All,All,All,No access to car (0),All
+S92000003,2016,Count,million pounds (GBP),640,Expenditure,All,All,All,All,All,No access to car (0),All
+S92000003,2015,Count,Million Visits,30,Visits,All,All,All,All,All,No access to car (0),All
+S92000003,2017,Count,Million Visits,24,Visits,All,All,All,All,All,No access to car (0),All
+S92000003,2018,Count,Million Visits,23,Visits,All,All,All,All,All,No access to car (0),All
+S92000003,2019,Count,Million Visits,110,Visits,All,All,All,All,All,Access to car (1+),All
+S92000003,2015,Count,Million Visits,95,Visits,All,All,All,All,All,Access to car (1+),All
+S92000003,2014,Count,Million Visits,101,Visits,All,All,All,All,All,Access to car (1+),All
+S92000003,2013,Count,Million Visits,100,Visits,All,All,All,All,All,Access to car (1+),All
+S92000003,2016,Count,Million Visits,22,Visits,All,All,All,All,All,No access to car (0),All
+S92000003,2017,Count,million pounds (GBP),763,Expenditure,All,All,All,All,All,No access to car (0),All
+S92000003,2013,Count,million pounds (GBP),578,Expenditure,All,All,All,All,All,No access to car (0),All
+S92000003,2019,Count,million pounds (GBP),825,Expenditure,All,All,All,All,All,No access to car (0),All
+S92000003,2014,Count,million pounds (GBP),741,Expenditure,All,All,All,All,All,No access to car (0),All
+S92000003,2015,Count,million pounds (GBP),682,Expenditure,All,All,All,All,All,No access to car (0),All
+S92000003,2019,Count,Million Visits,23,Visits,All,All,All,All,All,No access to car (0),All
+S92000003,2018,Count,million pounds (GBP),899,Expenditure,All,All,All,All,All,No access to car (0),All
+S92000003,2014,Count,Million Visits,26,Visits,All,All,All,All,All,No access to car (0),All
+S92000003,2014,Count,million pounds (GBP),1898,Expenditure,All,All,All,All,All,All,AB
+S92000003,2014,Count,million pounds (GBP),2593,Expenditure,All,All,Female,All,All,All,All
+S92000003,2016,Count,million pounds (GBP),2434,Expenditure,All,All,Female,All,All,All,All
+S92000003,2018,Count,Million Visits,115,Visits,All,All,All,All,All,Access to car (1+),All
+S92000003,2019,Count,million pounds (GBP),4952,Expenditure,All,All,All,All,All,Access to car (1+),All
+S92000003,2016,Count,million pounds (GBP),1465,Expenditure,All,All,All,All,All,All,C1
+S92000003,2014,Count,million pounds (GBP),612,Expenditure,All,All,All,All,All,All,DE
+S92000003,2019,Count,million pounds (GBP),5777,Expenditure,All,All,All,All,All,All,All
+S92000003,2019,Count,million pounds (GBP),689,Expenditure,16-24 years,All,All,All,All,All,All
+S92000003,2013,Count,million pounds (GBP),4069,Expenditure,All,All,All,All,All,Access to car (1+),All
+S92000003,2016,Count,million pounds (GBP),4276,Expenditure,All,All,All,All,All,Access to car (1+),All
+S92000003,2017,Count,million pounds (GBP),5232,Expenditure,All,All,All,All,All,Access to car (1+),All
+S92000003,2014,Count,million pounds (GBP),4279,Expenditure,All,All,All,All,All,Access to car (1+),All
+S92000003,2016,Count,Million Visits,120,Visits,All,All,All,All,All,Access to car (1+),All
+S92000003,2018,Count,million pounds (GBP),4575,Expenditure,All,All,All,All,All,Access to car (1+),All
+S92000003,2017,Count,Million Visits,127,Visits,All,All,All,All,All,Access to car (1+),All
+S92000003,2015,Count,million pounds (GBP),3240,Expenditure,All,All,All,All,All,Access to car (1+),All
+S92000003,2014,Count,million pounds (GBP),1633,Expenditure,All,Not Married,All,All,All,All,All
+S92000003,2016,Count,million pounds (GBP),3240,Expenditure,All,All,All,All,No - Children,All,All
+S92000003,2016,Count,million pounds (GBP),920,Expenditure,25-34 years,All,All,All,All,All,All
+S92000003,2017,Count,million pounds (GBP),702,Expenditure,65 years and over,All,All,All,All,All,All
+S92000003,2014,Count,million pounds (GBP),794,Expenditure,55-64 years,All,All,All,All,All,All
+S92000003,2013,Count,million pounds (GBP),541,Expenditure,16-24 years,All,All,All,All,All,All
+S92000003,2013,Count,million pounds (GBP),799,Expenditure,65 years and over,All,All,All,All,All,All
+S92000003,2013,Count,million pounds (GBP),969,Expenditure,45-54 years,All,All,All,All,All,All
+S92000003,2018,Count,million pounds (GBP),3401,Expenditure,All,All,All,All,No - Children,All,All
+S92000003,2018,Count,million pounds (GBP),702,Expenditure,65 years and over,All,All,All,All,All,All
+S92000003,2019,Count,million pounds (GBP),1212,Expenditure,All,All,All,All,All,All,C1
+S92000003,2013,Count,million pounds (GBP),615,Expenditure,55-64 years,All,All,All,All,All,All
+S92000003,2014,Count,million pounds (GBP),3604,Expenditure,All,All,All,All,No - Children,All,All
+S92000003,2015,Count,million pounds (GBP),2579,Expenditure,All,All,All,All,No - Children,All,All
+S92000003,2016,Count,million pounds (GBP),1455,Expenditure,All,Not Married,All,All,All,All,All
+S92000003,2013,Count,million pounds (GBP),729,Expenditure,35-44 years,All,All,All,All,All,All
+S92000003,2015,Count,million pounds (GBP),825,Expenditure,25-34 years,All,All,All,All,All,All
+S92000003,2014,Count,million pounds (GBP),618,Expenditure,All,All,All,All,All,All,C2
+S92000003,2015,Count,million pounds (GBP),748,Expenditure,55-64 years,All,All,All,All,All,All
+S92000003,2014,Count,million pounds (GBP),831,Expenditure,25-34 years,All,All,All,All,All,All
+S92000003,2018,Count,million pounds (GBP),2839,Expenditure,All,All,Male,All,All,All,All
+S92000003,2018,Count,million pounds (GBP),5474,Expenditure,All,All,All,All,All,All,All
+S92000003,2018,Count,million pounds (GBP),2635,Expenditure,All,All,Female,All,All,All,All
+S92000003,2014,Count,million pounds (GBP),966,Expenditure,16-24 years,All,All,All,All,All,All
+S92000003,2017,Count,million pounds (GBP),3992,Expenditure,All,All,All,All,No - Children,All,All
+S92000003,2014,Count,million pounds (GBP),809,Expenditure,45-54 years,All,All,All,All,All,All
+S92000003,2014,Count,million pounds (GBP),733,Expenditure,35-44 years,All,All,All,All,All,All
+S92000003,2015,Count,million pounds (GBP),565,Expenditure,16-24 years,All,All,All,All,All,All
+S92000003,2015,Count,million pounds (GBP),709,Expenditure,35-44 years,All,All,All,All,All,All
+S92000003,2016,Count,million pounds (GBP),563,Expenditure,16-24 years,All,All,All,All,All,All
+S92000003,2016,Count,million pounds (GBP),808,Expenditure,55-64 years,All,All,All,All,All,All
+S92000003,2018,Count,million pounds (GBP),2073,Expenditure,All,All,All,All,Yes - Children,All,All
+S92000003,2016,Count,million pounds (GBP),638,Expenditure,65 years and over,All,All,All,All,All,All
+S92000003,2016,Count,million pounds (GBP),911,Expenditure,35-44 years,All,All,All,All,All,All
+S92000003,2018,Count,million pounds (GBP),850,Expenditure,55-64 years,All,All,All,All,All,All
+S92000003,2013,Count,million pounds (GBP),4647,Expenditure,All,All,All,All,All,All,All
+S92000003,2013,Count,million pounds (GBP),1555,Expenditure,All,All,All,All,Yes - Children,All,All
+S92000003,2013,Count,million pounds (GBP),1449,Expenditure,All,All,All,All,All,All,C1
+S92000003,2016,Count,million pounds (GBP),3461,Expenditure,All,Married,All,All,All,All,All
+S92000003,2015,Count,million pounds (GBP),1342,Expenditure,All,All,All,All,Yes - Children,All,All
+S92000003,2016,Count,million pounds (GBP),915,Expenditure,All,All,All,All,All,All,C2
+S92000003,2013,Count,million pounds (GBP),3092,Expenditure,All,All,All,All,No - Children,All,All
+S92000003,2018,Count,million pounds (GBP),3589,Expenditure,All,Married,All,All,All,All,All
+S92000003,2018,Count,million pounds (GBP),935,Expenditure,16-24 years,All,All,All,All,All,All
+S92000003,2017,Count,million pounds (GBP),808,Expenditure,45-54 years,All,All,All,All,All,All
+S92000003,2014,Count,million pounds (GBP),1892,Expenditure,All,All,All,All,All,All,C1
+S92000003,2019,Count,million pounds (GBP),3535,Expenditure,All,All,All,All,No - Children,All,All
+S92000003,2017,Count,million pounds (GBP),1268,Expenditure,25-34 years,All,All,All,All,All,All
+S92000003,2018,Count,million pounds (GBP),1378,Expenditure,All,All,All,All,All,All,C1
+S92000003,2015,Count,million pounds (GBP),1418,Expenditure,All,All,All,All,All,All,C1
+S92000003,2015,Count,million pounds (GBP),468,Expenditure,65 years and over,All,All,All,All,All,All
+S92000003,2015,Count,million pounds (GBP),607,Expenditure,45-54 years,All,All,All,All,All,All
+S92000003,2018,Count,million pounds (GBP),896,Expenditure,45-54 years,All,All,All,All,All,All
+S92000003,2016,Count,million pounds (GBP),1677,Expenditure,All,All,All,All,Yes - Children,All,All
+S92000003,2014,Count,million pounds (GBP),232,Expenditure,All,All,All,In full or part time education,All,All,All
+S92000003,2019,Count,Million Visits,14,Visits,All,All,All,In full or part time education,All,All,All
+S92000003,2016,Count,Million Visits,17,Visits,All,All,All,In full or part time education,All,All,All
+S92000003,2014,Count,Million Visits,11,Visits,All,All,All,In full or part time education,All,All,All
+S92000003,2018,Count,Million Visits,15,Visits,All,All,All,In full or part time education,All,All,All
+S92000003,2019,Count,million pounds (GBP),500,Expenditure,All,All,All,In full or part time education,All,All,All
+S92000003,2013,Count,Million Visits,13,Visits,All,All,All,In full or part time education,All,All,All
+S92000003,2017,Count,Million Visits,16,Visits,All,All,All,In full or part time education,All,All,All
+S92000003,2013,Count,million pounds (GBP),283,Expenditure,All,All,All,In full or part time education,All,All,All
+S92000003,2017,Count,million pounds (GBP),571,Expenditure,All,All,All,In full or part time education,All,All,All
+S92000003,2018,Count,million pounds (GBP),402,Expenditure,All,All,All,In full or part time education,All,All,All
+S92000003,2016,Count,million pounds (GBP),322,Expenditure,All,All,All,In full or part time education,All,All,All
+S92000003,2015,Count,Million Visits,14,Visits,All,All,All,In full or part time education,All,All,All
+S92000003,2015,Count,million pounds (GBP),349,Expenditure,All,All,All,In full or part time education,All,All,All
+S92000003,2013,Count,million pounds (GBP),2894,Expenditure,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2017,Count,Million Visits,88,Visits,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2019,Count,Million Visits,74,Visits,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2018,Count,Million Visits,77,Visits,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2015,Count,million pounds (GBP),2294,Expenditure,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2016,Count,million pounds (GBP),3334,Expenditure,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2015,Count,Million Visits,67,Visits,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2014,Count,million pounds (GBP),3177,Expenditure,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2019,Count,million pounds (GBP),3564,Expenditure,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2017,Count,million pounds (GBP),4011,Expenditure,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2016,Count,Million Visits,78,Visits,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2014,Count,Million Visits,72,Visits,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2018,Count,million pounds (GBP),3771,Expenditure,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2013,Count,Million Visits,68,Visits,All,All,All,Employed/self-employed (full or part time),All,All,All
+S92000003,2013,Count,million pounds (GBP),1600,Expenditure,All,All,All,Unemployed/not working,All,All,All
+S92000003,2014,Count,million pounds (GBP),368,Expenditure,All,All,All,Unemployed/not working,All,All,All
+S92000003,2016,Count,million pounds (GBP),255,Expenditure,All,All,All,Unemployed/not working,All,All,All
+S92000003,2017,Count,million pounds (GBP),450,Expenditure,All,All,All,Unemployed/not working,All,All,All
+S92000003,2015,Count,million pounds (GBP),483,Expenditure,All,All,All,Unemployed/not working,All,All,All
+S92000003,2017,Count,Million Visits,16,Visits,All,All,All,Unemployed/not working,All,All,All
+S92000003,2014,Count,Million Visits,11,Visits,All,All,All,Unemployed/not working,All,All,All
+S92000003,2018,Count,million pounds (GBP),396,Expenditure,All,All,All,Unemployed/not working,All,All,All
+S92000003,2019,Count,Million Visits,17,Visits,All,All,All,Unemployed/not working,All,All,All
+S92000003,2019,Count,million pounds (GBP),715,Expenditure,All,All,All,Unemployed/not working,All,All,All
+S92000003,2018,Count,Million Visits,15,Visits,All,All,All,Unemployed/not working,All,All,All
+S92000003,2015,Count,Million Visits,15,Visits,All,All,All,Unemployed/not working,All,All,All
+S92000003,2013,Count,Million Visits,46,Visits,All,All,All,Unemployed/not working,All,All,All
+S92000003,2016,Count,Million Visits,11,Visits,All,All,All,Unemployed/not working,All,All,All
